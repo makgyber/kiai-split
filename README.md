@@ -1,5 +1,7 @@
 # Kiai Wireless Split Keyboard
 
+![with trackball setup](images/closeup_with_trackball.jpg)
+![angled board view](images/closeup1.jpg)
 ![full board view](images/fullboard.jpg)
 ## Features
 - Seeed Studio XIAO nRF52840 
