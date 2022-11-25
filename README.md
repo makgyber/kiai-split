@@ -1,6 +1,6 @@
 # Kiai Wireless Split Keyboard
 
-![full board view](images/fullboard.jpg.png)
+![full board view](images/fullboard.jpg)
 ## Features
 - Seeed Studio XIAO nRF52840 
 - ZMK
