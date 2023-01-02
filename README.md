@@ -30,6 +30,10 @@ The right side will also need the jumper but on the upper two holes instead:
 
 The diodes should mirror the orientation on the opposite board.
 
+![right hand diode orientation](images/diode_right.jpg)
+
+![left hand diode orientation](images/diode_left.jpg)
+
 
 ## Flashing the Firmware
 For convenience, the compiled uf2 files are in the bin folder. 
