@@ -2,6 +2,15 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define DEF 0
+#define HDN 1
+#define DVK 2
+#define BKL 3
+#define CTG 4
+#define NUM 5
+#define NAV 6
+#define SYS 7
+
 / {
 
     behaviors {
@@ -35,7 +44,7 @@
             wait-ms = <10>;
             bindings
                 = <&macro_tap_time 10>
-                , <&kp J &kp O &kp N>
+                , <&kp J &kp O &kp N &kp N9 &kp N9>
                 ;
         };
 
@@ -67,10 +76,46 @@
 
         default_layer {
             bindings = <
-                &kp Q   &kp W   &kp E   &kp R   &lt 3 T                       &kp Y   &kp U   &kp I   &kp O   &lt 3 P  
+                &kp Q   &kp W   &kp E   &kp R   &lt SYS T                       &kp Y   &kp U   &kp I   &kp O   &lt SYS P  
                 &kp A   &kp S   &kp D   &kp F   &kp G                       &kp H   &kp J   &kp K   &kp L   &kp SEMICOLON  
                 &hm LCTRL Z   &hm LALT X   &hm LSHFT C   &kp V   &kp B      &kp N   &kp M   &kp COMMA   &kp DOT   &kp ENTER
-                        &lt 2 SPACE  &hm LGUI ENTER                  &hm LSHFT SPACE  &lt 1 BSPC
+                        &lt NAV SPACE  &hm LGUI ENTER                  &hm LSHFT SPACE  &lt NUM BSPC
+            >;
+        };
+
+        handsdown_layer {
+            bindings = <
+                &kp Q   &kp W   &kp D   &kp F   &lt SYS P                       &kp J &kp U   &kp O   &kp Y   &lt SYS SEMICOLON
+                &kp A   &kp S  &kp R       &kp T   &kp G                       &kp H   &kp N   &kp E   &kp I   &kp L  
+               &hm LCTRL Z   &hm LALT X   &hm LSHFT C   &kp V   &kp B      &kp K   &kp M   &kp COMMA   &kp DOT   &kp ENTER
+                        &lt NAV SPACE   &hm LGUI   ENTER                &hm LSHFT SPACE  &lt NUM BSPC
+            >;
+        };
+
+        dvorak_layer {
+            bindings = <
+                &kp SQT   &kp COMMA   &kp DOT   &kp P   &lt SYS Y                       &kp F &kp G   &kp C   &kp R   &lt SYS L
+                &kp A   &kp O  &kp E       &kp U   &kp I                      &kp D   &kp H   &kp T   &kp N   &kp S  
+               &hm LCTRL SEMICOLON   &hm LALT Q   &hm LSHFT J   &kp K   &kp X      &kp B   &kp M   &kp W   &kp V   &kp Z
+                        &lt NAV SPACE   &hm LGUI   ENTER                &hm LSHFT SPACE  &lt NUM BSPC
+            >;
+        };
+
+        beakl_layer {
+            bindings = <
+                &kp Q   &kp H   &kp O   &kp U   &lt SYS X                        &kp G   &kp C  &kp M &kp R   &lt SYS V
+                &kp Y   &kp I  &kp E       &kp A   &kp SEMICOLON                      &kp D   &kp S   &kp T   &kp N   &kp B  
+               &hm LCTRL J   &hm LALT COMMA   &hm LSHFT DOT   &kp K   &kp SQT      &kp W   &kp F   &kp L   &kp P   &kp Z
+                        &lt NAV SPACE   &hm LGUI   ENTER                &hm LSHFT SPACE  &lt NUM BSPC
+            >;
+        };
+
+        ctgap_layer {
+            bindings = <
+                &kp Q   &kp P   &kp L   &kp C   &lt SYS J                &kp X   &kp F  &kp O     &kp U   &lt SYS SEMICOLON
+                &kp R   &kp N  &kp T    &kp S   &kp G                    &kp Y   &kp H   &kp E   &kp I   &kp A  
+               &hm LCTRL Z   &kp B  &hm LALT M   &hm LSHFT W   &kp V     &kp K   &kp D   &kp SQT  &kp COMMA   &kp DOT
+                        &lt NAV SPACE   &hm LGUI   ENTER                &hm LSHFT SPACE  &lt NUM BSPC
             >;
         };
 
@@ -94,12 +139,14 @@
 
         system_layer {
             bindings = <
-                 &trans &trans   &trans  &trans   &trans               &trans   &trans  &trans   &kp BSPC   &trans 
-                 &trans   &trans  &trans   &trans  &trans            &trans   &trans  &trans   &trans    &trans
+                 &trans &trans   &trans  &trans   &trans               &to BKL   &to CTG  &trans   &kp BSPC   &trans  
+                 &trans   &trans  &trans   &trans  &trans              &to DEF   &to HDN  &to DVK   &trans    &trans
                  &trans   &bt BT_NXT  &bt BT_PRV  &bt BT_CLR   &reset      &reset   &bt BT_CLR  &bt BT_PRV   &bt BT_NXT  &trans
                         &trans   &trans                     &trans   &trans  
             >;
         };
+
+        
 
 
     };
